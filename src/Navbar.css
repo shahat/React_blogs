@@ -1,0 +1,9 @@
+.createBlog {
+  color: white;
+  background-color: #f1356d;
+  border-radius: 8px;
+}
+.createBlog:hover {
+  color: white !important;
+  background-color: #af1442;
+}
