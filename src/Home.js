@@ -18,12 +18,13 @@ const Home = () => {
   /* optaining the data from json server using fetch method  */
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:8000/blogs5f")
+      fetch("http://localhost:8000/blogs")
         .then((res) => {
           if (!res.ok)
             throw Error(
               "Error cant fetch the data fetch the data for that resource "
             );
+
           return res.json();
         })
         .then((data) => {
