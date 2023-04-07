@@ -1,5 +1,6 @@
 # React_blogs
 in this project i use : 
-- Json Server  ,
+- Json Server  
 - React hooks [ useState , useEffect ] 
-- Fetching data inside use effect  
+- Fetching data inside use effect
+- React router  
