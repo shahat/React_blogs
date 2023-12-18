@@ -6,9 +6,11 @@ const useFetch = (url) => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
+    // bort controller is used to stop the fetch when we change the route
+    const abortCont = new AbortController();
     // end of setTimeOut we used setTimeOut to make fetching the data more realistic
     setTimeout(() => {
-      fetch(url) // we import the url here to make it more reusable for any url
+      fetch(url, { signal: abortCont.signal }) // we import the url here to make it more reusable for any url
         .then((res) => {
           if (!res.ok)
             throw Error(
@@ -22,10 +24,17 @@ const useFetch = (url) => {
           setIsPending(null);
         })
         .catch((err) => {
-          setIsPending(false);
-          setError(err.message);
+          // the followong is used for
+          if (err.name === "AbortError") {
+            console.log("fetch abourt");
+          } else {
+            setIsPending(false);
+            setError(err.message);
+          }
         });
     }, 1000);
+
+    return () => abortCont.abort(); //
   }, [url]);
 
   return {
