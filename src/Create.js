@@ -22,7 +22,7 @@ const Create = () => {
     */
     setIsPending(true);
     console.log(blog);
-    fetch(`http://localhost:8000/blogs`, {
+    fetch(`https://products-rica.onrender.com/blogs`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

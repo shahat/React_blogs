@@ -5,7 +5,7 @@ const Home = () => {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs");
+  } = useFetch("https://products-rica.onrender.com/blogs");
   return (
     <div className="home">
       {error && <div> {error} </div>}

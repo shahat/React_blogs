@@ -16,10 +16,10 @@ const BlogDetails = () => {
     data: blog,
     error,
     isPending,
-  } = useFetch(`http://localhost:8000/blogs/${id}`);
+  } = useFetch(`https://products-rica.onrender.com/blogs/${id}`);
   const history = useHistory();
   const handleDelete = (id) => {
-    fetch(`http://localhost:8000/blogs/${id}`, { method: "DELETE" }).then(
+    fetch(`https://products-rica.onrender.com/blogs/${id}`, { method: "DELETE" }).then(
       (res) => {
         console.log("res", res);
         history.push("/");
